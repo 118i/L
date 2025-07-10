@@ -139,8 +139,8 @@
             color: var(--dark);
         }
         
-        /* Timeline Section */
-        .timeline-section {
+        /* Content Sections */
+        .history-section {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 243, 233, 0.9) 100%);
             border-radius: 15px;
             padding: 3rem;
@@ -149,18 +149,6 @@
             border: 1px solid rgba(10, 94, 42, 0.2);
             position: relative;
             overflow: hidden;
-        }
-        
-        .timeline-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,20 Q40,5 50,20 T80,20 Q95,30 80,50 T80,80 Q60,95 50,80 T20,80 Q5,70 20,50 Z" fill="none" stroke="rgba(10,94,42,0.05)" stroke-width="2"/></svg>');
-            opacity: 0.2;
-            z-index: 0;
         }
         
         .section-title {
@@ -178,78 +166,39 @@
             color: var(--accent);
         }
         
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px 0;
+        .history-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            text-align: justify;
         }
         
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--primary);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-            border-radius: 3px;
-        }
-        
-        .timeline-item {
-            position: relative;
-            width: 50%;
-            padding: 20px 40px;
-        }
-        
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-        
-        .timeline-content {
-            background: white;
-            border: 1px solid #ddd;
+        .sub-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
             border-radius: 10px;
-            padding: 25px;
-            position: relative;
-            box-shadow: var(--shadow);
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
+            border-left: 4px solid var(--primary);
         }
         
-        .timeline-content:hover {
+        .sub-section:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
         
-        .timeline-date {
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+        .sub-title {
+            color: var(--secondary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
         }
         
-        .timeline-date i {
+        .sub-title i {
             margin-left: 10px;
             color: var(--accent);
-        }
-        
-        .timeline-title {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
-        
-        .timeline-desc {
-            margin-bottom: 15px;
-            text-align: justify;
-            line-height: 1.9;
         }
         
         .quran-verse {
@@ -355,7 +304,7 @@
             margin-left: 10px;
         }
         
-        /* Imams Section */
+        /* Imams List */
         .imams-section {
             background: linear-gradient(135deg, #f0ede1 0%, #e5dfcb 100%);
             border-radius: 15px;
@@ -365,147 +314,49 @@
             border: 1px solid rgba(10, 94, 42, 0.2);
         }
         
-        .imams-grid {
+        .imams-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
             margin-top: 30px;
         }
         
-        .imam-card {
+        .imam-item {
             background: white;
             border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-            transition: var(--transition);
-            cursor: pointer;
-            position: relative;
-            border: 1px solid rgba(10, 94, 42, 0.1);
-        }
-        
-        .imam-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .imam-header {
-            background: linear-gradient(135deg, var(--primary) 0%, #0a3e1f 100%);
-            color: white;
             padding: 20px;
-            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+        
+        .imam-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
         
         .imam-name {
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-        }
-        
-        .imam-title {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-        
-        .imam-lifespan {
-            background-color: var(--accent);
-            color: var(--dark);
-            padding: 8px;
-            text-align: center;
-            font-weight: 600;
-        }
-        
-        .imam-content {
-            padding: 20px;
-            min-height: 150px;
-        }
-        
-        .imam-content h3 {
-            color: var(--secondary);
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        
-        .imam-desc {
-            font-size: 0.95rem;
-            line-height: 1.7;
-            text-align: justify;
-        }
-        
-        .imam-more {
-            display: block;
-            text-align: center;
-            padding: 10px;
-            background-color: rgba(10, 94, 42, 0.05);
+            font-size: 1.5rem;
             color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
         }
         
-        .imam-more:hover {
-            background-color: rgba(10, 94, 42, 0.1);
-        }
-        
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            overflow: auto;
-            padding: 20px;
-        }
-        
-        .modal-content {
-            background: white;
-            max-width: 800px;
-            margin: 50px auto;
-            border-radius: 15px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            position: relative;
-            animation: modalopen 0.5s;
-        }
-        
-        @keyframes modalopen {
-            from {opacity: 0; transform: translateY(-50px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-        
-        .modal-header {
-            background: linear-gradient(135deg, var(--secondary) 0%, #6c1515 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 15px 15px 0 0;
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            left: 20px;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .close-modal:hover {
+        .imam-name i {
+            margin-left: 10px;
             color: var(--accent);
         }
         
-        .modal-body {
-            padding: 30px;
-            max-height: 70vh;
-            overflow-y: auto;
+        .imam-lifespan {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 15px;
         }
         
-        .modal-body h3 {
-            color: var(--primary);
-            margin: 20px 0 15px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--accent);
+        .imam-desc {
+            font-size: 1rem;
+            line-height: 1.7;
         }
         
         /* Footer */
@@ -602,7 +453,7 @@
                 font-size: 1.9rem;
             }
             
-            .timeline-section, .imams-section {
+            .history-section, .imams-section {
                 padding: 2rem;
             }
         }
@@ -620,22 +471,8 @@
                 font-size: 1.7rem;
             }
             
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-content {
-                padding: 20px;
+            .sub-title {
+                font-size: 1.5rem;
             }
             
             .nav-item {
@@ -662,8 +499,8 @@
                 font-size: 1.5rem;
             }
             
-            .timeline-title {
-                font-size: 1.5rem;
+            .sub-title {
+                font-size: 1.3rem;
             }
             
             .nav-item {
@@ -688,7 +525,7 @@
                     <i class="fas fa-mosque"></i>
                 </div>
                 <h1 class="site-title">سيرة أهل البيت من النبي إلى الإمام المهدي (عج)</h1>
-                <p class="site-subtitle">موسوعة شاملة عن حياة النبي محمد (ص) وأهل البيت (عليهم السلام) والأحداث التاريخية</p>
+                <p class="site-subtitle">موسوعة شاملة عن حياة النبي محمد (ص) وأهل البيت (عليهم السلام) والأحداث التاريخية والمظلوميات</p>
             </div>
         </div>
     </header>
@@ -697,7 +534,8 @@
     <nav>
         <div class="nav-container">
             <a href="#" class="nav-item active">الرئيسية</a>
-            <a href="#timeline" class="nav-item">الخط الزمني</a>
+            <a href="#nabi" class="nav-item">وفاة النبي</a>
+            <a href="#sakifa" class="nav-item">أحداث السقيفة</a>
             <a href="#imams" class="nav-item">الأئمة المعصومين</a>
             <a href="#footer" class="nav-item">تواصل معنا</a>
         </div>
@@ -705,298 +543,197 @@
     
     <!-- Main Content -->
     <div class="container">
-        <!-- Timeline Section -->
-        <section id="timeline" class="timeline-section">
-            <div class="letter-content">
-                <h2 class="section-title"><i class="fas fa-history"></i> الخط الزمني التاريخي</h2>
-                <p>التاريخ الشامل لحياة النبي محمد (ص) وأهل البيت (عليهم السلام) من البعثة إلى عصر الغيبة الكبرى</p>
+        <!-- Nabi Section -->
+        <section id="nabi" class="history-section">
+            <h2 class="section-title"><i class="fas fa-star"></i> وفاة النبي محمد ﷺ – الرحيل الأعظم</h2>
+            
+            <div class="history-content">
+                <p>في سنة 11 للهجرة، وقعت أعظم فاجعة في تاريخ الأمة الإسلامية، فاجعةٌ لم تكن مجرد موت قائد أو رحيل نبي، بل كانت نقطة تحوّل عظيمة رسمت ملامح انقسام الأمة إلى يومنا هذا.</p>
                 
-                <div class="timeline">
-                    <!-- Event 1 -->
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-date"><i class="fas fa-calendar"></i> 11 هـ / 632 م</div>
-                            <h3 class="timeline-title">وفاة النبي محمد (ص)</h3>
-                            <div class="timeline-desc">
-                                <p>رحل النبي محمد (ص) وهو على صدر حبيبه علي بن أبي طالب (ع) في بيت فاطمة الزهراء (عليها السلام). قبل وفاته طلب النبي من الصحابة أن يأتوا له بكتف ودواة ليكتب لهم كتاباً لن يضلوا بعده، فقال عمر بن الخطاب: "إن الرجل ليهجر، حسبنا كتاب الله!" فوقع الخلاف بين الصحابة في بيت النبوة.</p>
-                                
-                                <div class="injustice">
-                                    <div class="injustice-title"><i class="fas fa-exclamation-triangle"></i> المظلومية</div>
-                                    <p>تجاهل الصحابة وصية النبي في الغدير، وتركوا جثمانه الشريف وركضوا للسقيفة لاختيار خليفة بدلاً من الإمام علي (ع) الذي كان منصوصاً عليه في غدير خم.</p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="sub-section">
+                    <h3 class="sub-title"><i class="fas fa-book"></i> سيرة النبي (ص)</h3>
+                    <p>رسول الله محمد ﷺ، الذي حمل الرسالة 23 سنة، وأتمّها بقول الله تعالى: "اليوم أكملتُ لكم دينكم وأتممتُ عليكم نعمتي ورضيتُ لكم الإسلام ديناً" (المائدة: 3)، مات مظلوماً مهموماً، ورأسه الشريف على صدر حبيبه علي بن أبي طالب (ع)، في بيت فاطمة الزهراء (عليها السلام).</p>
+                    
+                    <div class="hadith">
+                        قبل أيام من وفاته، مرض النبي مرضاً شديداً. رغم اشتداد الحمى، خرج إلى المسجد وخطب خطبة قال فيها: "أيها الناس، إني قد دُعيت فأجبت، وإني تارك فيكم الثقلين: كتاب الله وعترتي أهل بيتي، ما إن تمسكتم بهما لن تضلوا بعدي أبدًا..."
                     </div>
                     
-                    <!-- Event 2 -->
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-date"><i class="fas fa-calendar"></i> 11 هـ / 632 م</div>
-                            <h3 class="timeline-title">هجوم على بيت فاطمة الزهراء (ع)</h3>
-                            <div class="timeline-desc">
-                                <p>رفض الإمام علي (ع) مبايعة أبي بكر، فأرسلوا عمر بن الخطاب إلى بيت الزهراء (عليها السلام) لإجباره على الخروج. اقتحموا الدار وضربوا الباب، والزهراء كانت خلفه فسقطت وكُسر ضلعها وأسقطت جنينها المحسن.</p>
-                                
-                                <div class="injustice">
-                                    <div class="injustice-title"><i class="fas fa-exclamation-triangle"></i> المظلومية</div>
-                                    <p>ماتت فاطمة الزهراء (ع) وهي مكسورة الظهر، مظلومة الحقوق، باكية ليل نهار. دفنت سراً وقبرها مخفي إلى اليوم. كتبت في وصيتها: "لا يشهد جنازتي من ظلمني".</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="history-content">
+                        <p>وفي يوم الخميس قبل الوفاة، طلب النبي ﷺ من الصحابة أن يأتوا له بكتف و دواة ليكتب لهم كتاباً لن يضلوا بعده، فقال عمر بن الخطاب: "إن الرجل ليهجر، حسبنا كتاب الله!" (رواه البخاري ومسلم). فوقعت الفتنة بين الصحابة، وارتفعت الأصوات في بيت النبوة، مما دفع النبي ﷺ إلى أن يأمرهم بالخروج قائلاً: "قوموا عني! لا ينبغي عند نبي تنازع!".</p>
+                    </div>
+                </div>
+                
+                <div class="sub-section">
+                    <h3 class="sub-title"><i class="fas fa-exclamation-triangle"></i> مظلومية النبي (ص)</h3>
+                    <p>يوم الإثنين، 28 صفر (أو 12 ربيع الأول حسب الروايات)، رحل النبي الأعظم ﷺ، وهو على صدر علي (ع). الإمام علي (ع) هو الذي غسّله، وكفّنه، ودفنه. والبيت كان مملوءاً بالحزن… فاطمة تبكي بجوار الجسد الطاهر، والحسن والحسين لا يفهمان بعد معنى الفقد.</p>
+                    
+                    <div class="hadith">
+                        قال الإمام الصادق (ع): "قُبض رسول الله ورأسه في حجر علي، وهو الذي غسله وحنطه وكفنه ودفنه، وأدخل الناس على دفعات يصلون عليه بغير إمام."
                     </div>
                     
-                    <!-- Event 3 -->
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-date"><i class="fas fa-calendar"></i> 36 هـ / 656 م</div>
-                            <h3 class="timeline-title">خلافة الإمام علي (ع)</h3>
-                            <div class="timeline-desc">
-                                <p>بعد مقتل عثمان بن عفان، بويع الإمام علي (ع) بالخلافة. واجه خلال خلافته معارضة شديدة من قبل طلحة والزبير وعائشة في معركة الجمل، ثم من معاوية بن أبي سفيان في معركة صفين.</p>
-                                
-                                <div class="injustice">
-                                    <div class="injustice-title"><i class="fas fa-exclamation-triangle"></i> المظلومية</div>
-                                    <p>سُلب حق الإمام علي (ع) بعد النبي 25 سنة. حُورب من أقرب الصحابة. استشهد غدراً وهو في محراب مسجد الكوفة على يد عبدالرحمن بن ملجم.</p>
-                                </div>
-                                
-                                <div class="hadith">
-                                    قال الإمام علي (ع): "اللهم إني قد مللتهم وملوني، وسئمتهم وسئموني، فأبدلني بهم خيراً منهم، وأبدلهم بي شراً مني"
-                                    <div class="reference">[نهج البلاغة، الخطبة 3]</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Event 4 -->
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-date"><i class="fas fa-calendar"></i> 61 هـ / 680 م</div>
-                            <h3 class="timeline-title">واقعة كربلاء</h3>
-                            <div class="timeline-desc">
-                                <p>رفض الإمام الحسين (ع) مبايعة يزيد بن معاوية، فخرج بأهل بيته إلى الكوفة بعد أن دعاه أهلها، لكنه تعرض للحصار في كربلاء حيث استشهد مع 72 من أصحابه وأهل بيته في يوم عاشوراء.</p>
-                                
-                                <div class="injustice">
-                                    <div class="injustice-title"><i class="fas fa-exclamation-triangle"></i> المظلومية</div>
-                                    <p>منعوا عن الحسين وأصحابه الماء، قُتل أولاده، قُطعت كفوف العباس، سهم بعين القاسم، سهم في نحر الرضيع عبد الله. ذُبح الحسين وقطعوا رأسه، سُبيت النساء، وأُحرقت الخيام.</p>
-                                </div>
-                                
-                                <div class="hadith">
-                                    قال رسول الله (ص): "الحسين مصباح الهدى وسفينة النجاة"
-                                    <div class="reference">[المستدرك على الصحيحين للحاكم: 3/194]</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Event 5 -->
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-date"><i class="fas fa-calendar"></i> 260 هـ / 874 م</div>
-                            <h3 class="timeline-title">بداية الغيبة الصغرى للإمام المهدي (عج)</h3>
-                            <div class="timeline-desc">
-                                <p>بعد استشهاد الإمام الحسن العسكري (ع)، بدأت الغيبة الصغرى للإمام المهدي (عج) التي استمرت حوالي 70 عاماً. خلال هذه الفترة، كان يتصل بشيعته عبر أربعة سفراء خاصين.</p>
-                                
-                                <div class="injustice">
-                                    <div class="injustice-title"><i class="fas fa-exclamation-triangle"></i> المظلومية</div>
-                                    <p>ولد الإمام المهدي (عج) في زمن الرعب، حيث كانت السلطة العباسية تبحث عن هذا الطفل لتقتله. أخفيت ولادته حتى عن أقرب المقربين، وعاش مطارداً من خلفاء العباسيين.</p>
-                                </div>
-                                
-                                <div class="reference">
-                                    قال الإمام المهدي (عج): "أما الحوادث الواقعة فارجعوا فيها إلى رواة حديثنا فإنهم حجتي عليكم وأنا حجة الله"
-                                    <div>[كمال الدين وتمام النعمة للصدوق: 2/483]</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Event 6 -->
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-date"><i class="fas fa-calendar"></i> 329 هـ / 941 م</div>
-                            <h3 class="timeline-title">بداية الغيبة الكبرى</h3>
-                            <div class="timeline-desc">
-                                <p>بدأت الغيبة الكبرى بعد وفاة السفير الرابع للإمام المهدي (عج). في هذه الفترة لا يوجد اتصال مباشر، ويجب على الشيعة الرجوع إلى الفقهاء العدول كمراجع للدين.</p>
-                                
-                                <div class="quran-verse">
-                                    "هُوَ الَّذِي أَرْسَلَ رَسُولَهُ بِالْهُدَىٰ وَدِينِ الْحَقِّ لِيُظْهِرَهُ عَلَى الدِّينِ كُلِّهِ وَلَوْ كَرِهَ الْمُشْرِكُونَ" (التوبة: 33)
-                                </div>
-                            </div>
-                        </div>
+                    <div class="injustice">
+                        <div class="injustice-title"><i class="fas fa-exclamation-circle"></i> المظلومية</div>
+                        <p>تجاهل الصحابة وصية النبي في الغدير، وتركوا جثمانه الشريف وركضوا للسقيفة لاختيار خليفة بدلاً من الإمام علي (ع) الذي كان منصوصاً عليه في غدير خم.</p>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Imams Section -->
+        <!-- Sakifa Section -->
+        <section id="sakifa" class="history-section">
+            <h2 class="section-title"><i class="fas fa-history"></i> السقيفة... بداية الانقلاب</h2>
+            
+            <div class="history-content">
+                <p>ما إن أُسدل الستار على حياة النبي محمد ﷺ، حتى وقعت الأمة في اختبارها الأول… واختارت أن تنقلب على وصيته.</p>
+                
+                <div class="sub-section">
+                    <h3 class="sub-title"><i class="fas fa-book"></i> سيرة الأحداث</h3>
+                    <p>بينما كان الإمام علي (ع) وأهل البيت (عليهم السلام) منشغلين بتغسيل وتكفين الجسد الطاهر للنبي، اجتمع بعض المهاجرين والأنصار في "سقيفة بني ساعدة"، لاختيار خليفة للنبي ﷺ دون حضور أهل بيته أو استشارتهم.</p>
+                    
+                    <p>النتيجة؟ تمت مبايعة أبي بكر بسرعة وبدون شورى عامة. هذا التصرف تم رغم وجود النصوص الواضحة التي نصبت علياً (ع) خليفة، مثل حديث الغدير. علي (ع) والعباس وعدد من الصحابة الصادقين رفضوا الحضور، معتبرين أن الأمر انحرافٌ خطير.</p>
+                    
+                    <div class="hadith">
+                        قال الإمام علي (ع): "أما والله لقد تقمصها ابن أبي قحافة، وإنه ليعلم أن محلي منها محل القطب من الرحى…" (نهج البلاغة، الخطبة 3)
+                    </div>
+                </div>
+                
+                <div class="sub-section">
+                    <h3 class="sub-title"><i class="fas fa-exclamation-triangle"></i> مظلومية فاطمة الزهراء (ع)</h3>
+                    <p>حينما رفض أمير المؤمنين علي (ع) البيعة، أُرسلت مجموعة بقيادة عمر بن الخطاب إلى بيت الزهراء (عليها السلام) لإجباره على الخروج ومبايعة أبي بكر.</p>
+                    
+                    <div class="history-content">
+                        <p>قال عمر بن الخطاب بالحرف: "والله لئن لم تخرجوا للبيعة لأحرقنّ البيت بمن فيه!" (تاريخ الطبري، ج2، ص233 / العقد الفريد، ج5). فاطمة (عليها السلام) كانت خلف الباب، تصرخ: "يا عمر، أما تتقي الله، تدخل على بيتي؟". لكن القوم لم يتراجعوا…</p>
+                        
+                        <ul style="padding-right: 20px; margin: 15px 0;">
+                            <li>كُسر الباب.</li>
+                            <li>سقطت الزهراء (عليها السلام) خلفه.</li>
+                            <li>كُسِر ضلعها وأسقطت جنينها المحسن.</li>
+                            <li>اقتادوا علياً (ع) بالقوة إلى المسجد.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="injustice">
+                        <div class="injustice-title"><i class="fas fa-exclamation-circle"></i> المظلومية</div>
+                        <p>ماتت فاطمة الزهراء (ع) وهي مكسورة الظهر، مظلومة الحقوق، باكية ليل نهار. دفنت سراً وقبرها مخفي إلى اليوم. كتبت في وصيتها: "لا يشهد جنازتي من ظلمني".</p>
+                    </div>
+                    
+                    <div class="hadith">
+                        قال الإمام الصادق (ع): "ما ضُربت في الإسلام امرأة أعظم من فاطمة (ع)."
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- More Sections -->
+        <section class="history-section">
+            <h2 class="section-title"><i class="fas fa-book"></i> خلافة أبي بكر... شرعية السيف بدل النص</h2>
+            
+            <div class="history-content">
+                <div class="sub-section">
+                    <h3 class="sub-title"><i class="fas fa-book"></i> سيرة الأحداث</h3>
+                    <p>حين اختير أبو بكر خليفة في السقيفة دون مشورة عامة ولا حضور أهل البيت (ع)، دخلت الأمة عهدًا جديدًا: عهد الخلافة بالاغتصاب لا بالنص.</p>
+                    
+                    <p>الإمام علي (ع) لم يُبايع في البداية، وبقي في بيته محتجًا على الانقلاب على وصية رسول الله ﷺ.</p>
+                    
+                    <div class="hadith">
+                        قال في نهج البلاغة: "فصبرتُ وفي العين قذى، وفي الحلق شجى، أرى تراثي نهباً." (نهج البلاغة، الخطبة 3)
+                    </div>
+                </div>
+                
+                <div class="sub-section">
+                    <h3 class="sub-title"><i class="fas fa-exclamation-triangle"></i> مظلومية فاطمة الزهراء (ع)</h3>
+                    <p>فدك كانت ملكاً للزهراء (ع) أعطاها لها النبي ﷺ في حياته، بأمر من الله، كما جاء في قوله: "فآتِ ذا القربى حقه" (الإسراء: 26). لكن بعد وفاة النبي، صادر أبو بكر فدك مدّعياً أن الأنبياء لا يورثون! وهذا يخالف صريح القرآن: "وورث سليمان داود" (النمل: 16) و"يرثني ويرث من آل يعقوب" (مريم: 6).</p>
+                    
+                    <div class="injustice">
+                        <div class="injustice-title"><i class="fas fa-exclamation-circle"></i> المظلومية</div>
+                        <p>لم تسكت الزهراء (ع). دخلت مسجد النبي، وخطبت خطبة خالدة، محتجة على القوم، مطالبة بحقها، وكاشفة للانقلاب بجرأة. لكنهم رفضوا تسليمها حقها، بل آذوها، وكذّبوها، وكأنها لا بنت نبي ولا سيدة نساء العالمين!</p>
+                    </div>
+                    
+                    <div class="hadith">
+                        قالت في خطبتها المشهورة: "أَفَلاَ تَعْلَمُونَ؟ بَلَى! تَجِلُّونَ ذِكْرَهُ، وَتَتَنَزَّلُونَ عَنْهُ، أَفَحُكْمَ الْجَاهِلِيَّةِ يَبْغُونَ؟!" (نهج البلاغة، خطبة الزهراء)
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- More sections would continue here... -->
+        
+        <!-- Imams List -->
         <section id="imams" class="imams-section">
             <h2 class="section-title"><i class="fas fa-star-and-crescent"></i> الأئمة الاثنا عشر (عليهم السلام)</h2>
             <p>الأئمة المعصومون الاثنا عشر هم خلفاء النبي محمد (ص) وأوصياؤه، وقد نص عليهم رسول الله (ص) في أحاديث متواترة.</p>
             
-            <div class="imams-grid">
-                <!-- Imam Ali -->
-                <div class="imam-card" onclick="openImamModal('imam1')">
-                    <div class="imam-header">
-                        <div class="imam-name">الإمام علي بن أبي طالب (ع)</div>
-                        <div class="imam-title">أمير المؤمنين</div>
-                    </div>
+            <div class="imams-list">
+                <div class="imam-item">
+                    <h3 class="imam-name"><i class="fas fa-user"></i> الإمام علي بن أبي طالب (ع)</h3>
                     <div class="imam-lifespan">23 ق.هـ - 40 هـ</div>
-                    <div class="imam-content">
-                        <h3>مظلوميته</h3>
-                        <p class="imam-desc">منع من حقه في الخلافة بعد وفاة النبي، تعرض بيته للهجوم، حورب في خلافته، واستشهد غدراً وهو في المحراب.</p>
-                    </div>
-                    <div class="imam-more">اضغط لمعرفة المزيد</div>
+                    <p class="imam-desc">أمير المؤمنين، ابن عم النبي وزوج ابنته فاطمة الزهراء. تعرض لمظلومية كبيرة حيث منع من حقه في الخلافة بعد وفاة النبي مباشرة.</p>
                 </div>
                 
-                <!-- Imam Hassan -->
-                <div class="imam-card" onclick="openImamModal('imam2')">
-                    <div class="imam-header">
-                        <div class="imam-name">الإمام الحسن المجتبى (ع)</div>
-                        <div class="imam-title">سبط النبي</div>
-                    </div>
+                <div class="imam-item">
+                    <h3 class="imam-name"><i class="fas fa-user"></i> الإمام الحسن المجتبى (ع)</h3>
                     <div class="imam-lifespan">3 هـ - 50 هـ</div>
-                    <div class="imam-content">
-                        <h3>مظلوميته</h3>
-                        <p class="imam-desc">تعرض للخيانة من جيشه، سمته زوجته بأمر معاوية، منع من دفنه بجوار جده الرسول (ص)، ورُمي جثمانه بالسهام.</p>
-                    </div>
-                    <div class="imam-more">اضغط لمعرفة المزيد</div>
+                    <p class="imam-desc">سبط النبي، تعرض للخيانة من جيشه، سمته زوجته بأمر معاوية، منع من دفنه بجوار جده الرسول.</p>
                 </div>
                 
-                <!-- Imam Hussain -->
-                <div class="imam-card" onclick="openImamModal('imam3')">
-                    <div class="imam-header">
-                        <div class="imam-name">الإمام الحسين الشهيد (ع)</div>
-                        <div class="imam-title">سيد الشهداء</div>
-                    </div>
+                <div class="imam-item">
+                    <h3 class="imam-name"><i class="fas fa-user"></i> الإمام الحسين الشهيد (ع)</h3>
                     <div class="imam-lifespan">4 هـ - 61 هـ</div>
-                    <div class="imam-content">
-                        <h3>مظلوميته</h3>
-                        <p class="imam-desc">استشهد في كربلاء مع أصحابه وأهل بيته بعد منعه من الماء، سُبيت عياله، وحملت رؤوسهم على الرماح.</p>
-                    </div>
-                    <div class="imam-more">اضغط لمعرفة المزيد</div>
+                    <p class="imam-desc">سيد الشهداء، استشهد في كربلاء مع أصحابه وأهل بيته بعد منعه من الماء، سُبيت عياله.</p>
                 </div>
                 
-                <!-- Imam Sajjad -->
-                <div class="imam-card" onclick="openImamModal('imam4')">
-                    <div class="imam-header">
-                        <div class="imam-name">الإمام علي زين العابدين (ع)</div>
-                        <div class="imam-title">سيد الساجدين</div>
-                    </div>
+                <div class="imam-item">
+                    <h3 class="imam-name"><i class="fas fa-user"></i> الإمام علي زين العابدين (ع)</h3>
                     <div class="imam-lifespan">38 هـ - 95 هـ</div>
-                    <div class="imam-content">
-                        <h3>مظلوميته</h3>
-                        <p class="imam-desc">عاش أسيراً بعد كربلاء، قيد بالسلاسل، شاهد مأساة كربلاء، عاش حياته حزيناً باكياً على أبيه وأهل بيته.</p>
-                    </div>
-                    <div class="imam-more">اضغط لمعرفة المزيد</div>
+                    <p class="imam-desc">سيد الساجدين، عاش أسيراً بعد كربلاء، قيد بالسلاسل، شاهد مأساة كربلاء.</p>
                 </div>
                 
-                <!-- Imam Baqir -->
-                <div class="imam-card" onclick="openImamModal('imam5')">
-                    <div class="imam-header">
-                        <div class="imam-name">الإمام محمد الباقر (ع)</div>
-                        <div class="imam-title">باقر العلم</div>
-                    </div>
+                <div class="imam-item">
+                    <h3 class="imam-name"><i class="fas fa-user"></i> الإمام محمد الباقر (ع)</h3>
                     <div class="imam-lifespan">57 هـ - 114 هـ</div>
-                    <div class="imam-content">
-                        <h3>مظلوميته</h3>
-                        <p class="imam-desc">واجه تشويهًا ومحاولات اغتيال صامتة، سُم بأمر من هشام بن عبد الملك.</p>
-                    </div>
-                    <div class="imam-more">اضغط لمعرفة المزيد</div>
+                    <p class="imam-desc">باقر العلم، واجه تشويهًا ومحاولات اغتيال صامتة، سُم بأمر من هشام بن عبد الملك.</p>
                 </div>
                 
-                <!-- Imam Sadiq -->
-                <div class="imam-card" onclick="openImamModal('imam6')">
-                    <div class="imam-header">
-                        <div class="imam-name">الإمام جعفر الصادق (ع)</div>
-                        <div class="imam-title">مؤسس المذهب</div>
-                    </div>
+                <div class="imam-item">
+                    <h3 class="imam-name"><i class="fas fa-user"></i> الإمام جعفر الصادق (ع)</h3>
                     <div class="imam-lifespan">83 هـ - 148 هـ</div>
-                    <div class="imam-content">
-                        <h3>مظلوميته</h3>
-                        <p class="imam-desc">حورب من الحكّام العباسيين، ضُيّق عليه، وراقبوه حتى في منزله، دس له السم.</p>
-                    </div>
-                    <div class="imam-more">اضغط لمعرفة المزيد</div>
+                    <p class="imam-desc">مؤسس المذهب، حورب من الحكّام العباسيين، ضُيّق عليه، دس له السم.</p>
                 </div>
                 
-                <!-- Imam Kazim -->
-                <div class="imam-card" onclick="openImamModal('imam7')">
-                    <div class="imam-header">
-                        <div class="imam-name">الإمام موسى الكاظم (ع)</div>
-                        <div class="imam-title">الكاظم الغيظ</div>
-                    </div>
+                <div class="imam-item">
+                    <h3 class="imam-name"><i class="fas fa-user"></i> الإمام موسى الكاظم (ع)</h3>
                     <div class="imam-lifespan">128 هـ - 183 هـ</div>
-                    <div class="imam-content">
-                        <h3>مظلوميته</h3>
-                        <p class="imam-desc">قضى سنوات في سجون العباسيين، حرم من رؤية أهله وشيعته، دس له السم في السجن.</p>
-                    </div>
-                    <div class="imam-more">اضغط لمعرفة المزيد</div>
+                    <p class="imam-desc">الكاظم الغيظ، قضى سنوات في سجون العباسيين، دس له السم في السجن.</p>
                 </div>
                 
-                <!-- Imam Rida -->
-                <div class="imam-card" onclick="openImamModal('imam8')">
-                    <div class="imam-header">
-                        <div class="imam-name">الإمام علي الرضا (ع)</div>
-                        <div class="imam-title">الإمام المسموم</div>
-                    </div>
+                <div class="imam-item">
+                    <h3 class="imam-name"><i class="fas fa-user"></i> الإمام علي الرضا (ع)</h3>
                     <div class="imam-lifespan">148 هـ - 203 هـ</div>
-                    <div class="imam-content">
-                        <h3>مظلوميته</h3>
-                        <p class="imam-desc">أجبر على ولاية العهد، عاش غريبًا في خراسان، دس له السم في عنب أو رمان.</p>
-                    </div>
-                    <div class="imam-more">اضغط لمعرفة المزيد</div>
+                    <p class="imam-desc">الإمام المسموم، أجبر على ولاية العهد، عاش غريبًا في خراسان، دس له السم.</p>
                 </div>
                 
-                <!-- Imam Jawad -->
-                <div class="imam-card" onclick="openImamModal('imam9')">
-                    <div class="imam-header">
-                        <div class="imam-name">الإمام محمد الجواد (ع)</div>
-                        <div class="imam-title">الإمام الشهيد</div>
-                    </div>
+                <div class="imam-item">
+                    <h3 class="imam-name"><i class="fas fa-user"></i> الإمام محمد الجواد (ع)</h3>
                     <div class="imam-lifespan">195 هـ - 220 هـ</div>
-                    <div class="imam-content">
-                        <h3>مظلوميته</h3>
-                        <p class="imam-desc">استلم الإمامة بعمر 8 سنوات، واجه تشكيكًا، دس له السم عن طريق زوجته أم الفضل.</p>
-                    </div>
-                    <div class="imam-more">اضغط لمعرفة المزيد</div>
+                    <p class="imam-desc">الإمام الشهيد، استلم الإمامة بعمر 8 سنوات، دس له السم عن طريق زوجته.</p>
                 </div>
                 
-                <!-- Imam Hadi -->
-                <div class="imam-card" onclick="openImamModal('imam10')">
-                    <div class="imam-header">
-                        <div class="imam-name">الإمام علي الهادي (ع)</div>
-                        <div class="imam-title">الإمام المحاصر</div>
-                    </div>
+                <div class="imam-item">
+                    <h3 class="imam-name"><i class="fas fa-user"></i> الإمام علي الهادي (ع)</h3>
                     <div class="imam-lifespan">212 هـ - 254 هـ</div>
-                    <div class="imam-content">
-                        <h3>مظلوميته</h3>
-                        <p class="imam-desc">نفي إلى سامراء، حُوصِر في بيت أشبه بسجن، منع من زيارة جده الحسين (ع)، دس له السم.</p>
-                    </div>
-                    <div class="imam-more">اضغط لمعرفة المزيد</div>
+                    <p class="imam-desc">الإمام المحاصر، نفي إلى سامراء، حُوصِر في بيت أشبه بسجن، دس له السم.</p>
                 </div>
                 
-                <!-- Imam Askari -->
-                <div class="imam-card" onclick="openImamModal('imam11')">
-                    <div class="imam-header">
-                        <div class="imam-name">الإمام الحسن العسكري (ع)</div>
-                        <div class="imam-title">أبو الغيبة</div>
-                    </div>
+                <div class="imam-item">
+                    <h3 class="imam-name"><i class="fas fa-user"></i> الإمام الحسن العسكري (ع)</h3>
                     <div class="imam-lifespan">232 هـ - 260 هـ</div>
-                    <div class="imam-content">
-                        <h3>مظلوميته</h3>
-                        <p class="imam-desc">عاصر أشد الخلفاء العباسيين قمعًا، فرضت عليه الإقامة الجبرية، دس له السم.</p>
-                    </div>
-                    <div class="imam-more">اضغط لمعرفة المزيد</div>
+                    <p class="imam-desc">أبو الغيبة، عاصر أشد الخلفاء العباسيين قمعًا، دس له السم.</p>
                 </div>
                 
-                <!-- Imam Mahdi -->
-                <div class="imam-card" onclick="openImamModal('imam12')">
-                    <div class="imam-header">
-                        <div class="imam-name">الإمام المهدي (عج)</div>
-                        <div class="imam-title">المنقذ المنتظر</div>
-                    </div>
+                <div class="imam-item">
+                    <h3 class="imam-name"><i class="fas fa-user"></i> الإمام المهدي (عج)</h3>
                     <div class="imam-lifespan">255 هـ - الآن</div>
-                    <div class="imam-content">
-                        <h3>مظلوميته</h3>
-                        <p class="imam-desc">غريب منذ ولادته، مطارد من خلفاء العباسيين، مفارق لأبيه وهو طفل، حُرم من الظهور.</p>
-                    </div>
-                    <div class="imam-more">اضغط لمعرفة المزيد</div>
+                    <p class="imam-desc">المنقذ المنتظر، غريب منذ ولادته، مطارد من خلفاء العباسيين، حُرم من الظهور.</p>
                 </div>
             </div>
         </section>
@@ -1025,91 +762,7 @@
         </div>
     </footer>
     
-    <!-- Imam Modals -->
-    <!-- Imam Ali Modal -->
-    <div id="imam1" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close-modal" onclick="closeModal('imam1')">&times;</span>
-                <h2>الإمام علي بن أبي طالب (ع)</h2>
-                <p>أمير المؤمنين - 23 ق.هـ - 40 هـ</p>
-            </div>
-            <div class="modal-body">
-                <h3>سيرته</h3>
-                <p>هو الإمام الأول عند الشيعة، ابن عم النبي محمد (ص) وزوج ابنته فاطمة الزهراء (ع). ولد في الكعبة قبل البعثة النبوية بـ 23 سنة. تربى في بيت النبي وكان أول من أسلم من الصبيان.</p>
-                
-                <h3>مظلوميته</h3>
-                <p>تعرض الإمام علي (ع) لأعظم الظلم في الإسلام بعد رسول الله (ص)، حيث منع من حقه الشرعي في الخلافة بعد وفاة النبي مباشرة. تعرض بيته للهجوم وامرأته سيدة نساء العالمين للضرب والإسقاط. حورب في خلافته من قبل الناكثين والقاسطين والمارقين. تعرض للخيانة في معركة صفين عندما رفع أهل الشام المصاحف. واستشهد غدراً وهو في محراب الصلاة على يد عبدالرحمن بن ملجم.</p>
-                
-                <h3>من أقواله</h3>
-                <div class="hadith">
-                    "أما والله لقد تقمصها ابن أبي قحافة وإنه ليعلم أن محلي منها محل القطب من الرحى"
-                    <div class="reference">[نهج البلاغة، الخطبة 3]</div>
-                </div>
-                
-                <div class="hadith">
-                    "فوالله ما زلت مدفوعاً عن حقي مستأثراً عليّ منذ قبض الله نبيه"
-                    <div class="reference">[نهج البلاغة، الخطبة 5]</div>
-                </div>
-                
-                <h3>استشهاده</h3>
-                <p>استشهد الإمام علي (ع) في ليلة 21 رمضان سنة 40 هـ بعد ضربة بالسيف وهو في محراب مسجد الكوفة. أوصى أن يدفن سراً لئلا ينبش قبره الأعداء، فدفن في النجف الأشرف.</p>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Imam Mahdi Modal -->
-    <div id="imam12" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close-modal" onclick="closeModal('imam12')">&times;</span>
-                <h2>الإمام المهدي المنتظر (عج)</h2>
-                <p>المنقذ المنتظر - 255 هـ - الآن</p>
-            </div>
-            <div class="modal-body">
-                <h3>سيرته</h3>
-                <p>هو الإمام الثاني عشر محمد بن الحسن العسكري (ع)، ولد في سامراء يوم 15 شعبان سنة 255 هـ. لقبه: القائم، الحجة، المهدي، صاحب الزمان. هو خاتم الأئمة الاثني عشر، والمصلح العالمي الذي سيملأ الأرض قسطاً وعدلاً كما ملئت ظلماً وجوراً.</p>
-                
-                <h3>مظلوميته</h3>
-                <p>وُلد الإمام في زمن الرعب، حيث كانت السلطة العباسية تبحث عن هذا الطفل لتقتله. أخفيت ولادته حتى عن أقرب المقربين. عاش مطارداً من خلفاء العباسيين. مفارق لأبيه وهو طفل. حُرم من الظهور، وبقي ينتظر أمر الله.</p>
-                
-                <h3>غيباته</h3>
-                <p><strong>الغيبة الصغرى (260-329 هـ):</strong> تواصل مع الشيعة عبر أربعة سفراء خاصين.</p>
-                <p><strong>الغيبة الكبرى (329 هـ-الآن):</strong> لا يوجد نواب معينون، والفقهاء العدول هم حجته على الناس.</p>
-                
-                <div class="hadith">
-                    قال رسول الله (ص): "لو لم يبق من الدهر إلا يوم واحد لطوّل الله ذلك اليوم حتى يخرج رجل من ولدي فيملأ الأرض عدلاً وقسطاً كما ملئت ظلماً وجوراً"
-                    <div class="reference">[سنن أبي داود: 4/106]</div>
-                </div>
-                
-                <div class="quran-verse">
-                    "وَنُرِيدُ أَن نَّمُنَّ عَلَى الَّذِينَ اسْتُضْعِفُوا فِي الْأَرْضِ وَنَجْعَلَهُمْ أَئِمَّةً وَنَجْعَلَهُمُ الْوَارِثِينَ" (القصص: 5)
-                </div>
-            </div>
-        </div>
-    </div>
-    
     <script>
-        // Function to open imam modal
-        function openImamModal(imamId) {
-            document.getElementById(imamId).style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-        
-        // Function to close modal
-        function closeModal(imamId) {
-            document.getElementById(imamId).style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target.className === 'modal') {
-                event.target.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-        
         // Navigation active class
         document.addEventListener('DOMContentLoaded', function() {
             const navItems = document.querySelectorAll('.nav-item');
