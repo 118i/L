@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تاريخ أهل البيت من وفاة النبي إلى الإمام المهدي (عج)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Naskh Arabic', serif;
+        }
+        
+        :root {
+            --primary: #0a5e2a;
+            --secondary: #8e1e1e;
+            --accent: #d4af37;
+            --light: #f5f3e9;
+            --dark: #1a1a1a;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f3e9 0%, #e8e1c6 100%);
+            color: var(--dark);
+            line-height: 1.8;
+            background-attachment: fixed;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0a3e1f 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 Q50,20 100,0 L100,100 Q50,80 0,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .logo i {
+            color: var(--accent);
+        }
+        
+        .site-title {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .site-subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            font-weight: 400;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: rgba(10, 94, 42, 0.95);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            margin: 0 5px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .nav-item:hover, .nav-item.active {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 3rem 0;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary);
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-left: 15px;
+            color: var(--accent);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 25px;
+            position: relative;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .timeline-desc {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .reference {
+            background-color: #f9f9f9;
+            border-right: 3px solid var(--accent);
+            padding: 15px;
+            margin-top: 15px;
+            font-style: italic;
+            border-radius: 5px;
+        }
+        
+        .quran-verse {
+            background-color: #e8f5e9;
+            border-right: 3px solid #4CAF50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #1B5E20;
+        }
+        
+        .hadith {
+            background-color: #fff3e0;
+            border-right: 3px solid #FF9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+            height: 200px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #000 100%);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 2rem;
+            padding: 0 20px;
+        }
+        
+        .footer-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .footer-links a {
+            display: block;
+            color: #ddd;
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 2rem;
+            }
+            
+            .site-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-item {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+                margin: 3px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-mosque"></i>
+                </div>
+                <h1 class="site-title">موسوعة تاريخ أهل البيت (عليهم السلام)</h1>
+                <p class="site-subtitle">من وفاة النبي محمد (ص) إلى ظهور الإمام المهدي (عجل الله فرجه الشريف) - رؤية شيعية</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-item active">الرئيسية</a>
+            <a href="#" class="nav-item">الخط الزمني</a>
+            <a href="#" class="nav-item">الأئمة المعصومين</a>
+            <a href="#" class="nav-item">الآيات والأحاديث</a>
+            <a href="#" class="nav-item">معرض الصور</a>
+            <a href="#" class="nav-item">المراجع</a>
+            <a href="#" class="nav-item">اتصل بنا</a>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Introduction Section -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-book-open"></i> مقدمة عن أهل البيت</h2>
+            <p>أهل البيت (عليهم السلام) هم عترة النبي محمد (ص) الذين أذهب الله عنهم الرجس وطهرهم تطهيراً. وقد أوصى النبي (ص) بالتمسك بهم مع القرآن الكريم في حديث الثقلين المشهور. يشمل أهل البيت الأئمة الاثني عشر من أبناء الإمام علي بن أبي طالب والسيدة فاطمة الزهراء (عليهم السلام).</p>
+            
+            <div class="quran-verse">
+                "إِنَّمَا يُرِيدُ اللَّهُ لِيُذْهِبَ عَنكُمُ الرِّجْسَ أَهْلَ الْبَيْتِ وَيُطَهِّرَكُمْ تَطْهِيرًا" (الأحزاب: 33)
+            </div>
+            
+            <div class="hadith">
+                <strong>حديث الثقلين:</strong> قال رسول الله (ص): "إني تارك فيكم الثقلين: كتاب الله وعترتي أهل بيتي، ما إن تمسكتم بهما لن تضلوا بعدي أبداً، فإنهما لن يفترقا حتى يردا علي الحوض"
+                <div class="reference">[صحيح مسلم، كتاب فضائل الصحابة]</div>
+            </div>
+        </section>
+        
+        <!-- Timeline Section -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-history"></i> الخط الزمني التاريخي</h2>
+            <p>التاريخ الشامل لأحداث أهل البيت من وفاة النبي (ص) حتى عصر الغيبة الكبرى للإمام المهدي (عج)</p>
+            
+            <div class="timeline">
+                <!-- Event 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">11 هـ / 632 م</div>
+                        <h3 class="timeline-title">وفاة النبي محمد (ص) وبداية الانحراف</h3>
+                        <p class="timeline-desc">بعد وفاة النبي (ص)، حصلت أحداث السقيفة التي أدت إلى تنصيب أبي بكر خليفة بدلاً من الإمام علي (ع) الذي كان منصوصاً عليه في غدير خم. رفض الإمام علي (ع) البيعة في البداية لكنه آثر مصلحة الإسلام العليا.</p>
+                        
+                        <div class="hadith">
+                            <strong>حديث الغدير:</strong> قال رسول الله (ص): "من كنت مولاه فعلي مولاه، اللهم والِ من والاه وعادِ من عاداه"
+                            <div class="reference">[مسند أحمد بن حنبل: 4/281]</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">36 هـ / 656 م</div>
+                        <h3 class="timeline-title">خلافة الإمام علي (ع)</h3>
+                        <p class="timeline-desc">بعد مقتل عثمان بن عفان، بويع الإمام علي (ع) بالخلافة. واجه خلال خلافته معارضة شديدة من قبل طلحة والزبير وعائشة في معركة الجمل، ثم من معاوية بن أبي سفيان في معركة صفين.</p>
+                        
+                        <div class="reference">
+                            قال الإمام علي (ع): "اللهم إني قد مللتهم وملوني، وسئمتهم وسئموني، فأبدلني بهم خيراً منهم، وأبدلهم بي شراً مني"
+                            <div>[نهج البلاغة، الخطبة 3]</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">40 هـ / 661 م</div>
+                        <h3 class="timeline-title">استشهاد الإمام علي (ع)</h3>
+                        <p class="timeline-desc">استشهد الإمام علي (ع) على يد عبدالرحمن بن ملجم أثناء صلاة الفجر في مسجد الكوفة. دفن في النجف الأشرف سراً حسب وصيته.</p>
+                        
+                        <div class="quran-verse">
+                            "وَمِنَ النَّاسِ مَن يَشْرِي نَفْسَهُ ابْتِغَاءَ مَرْضَاتِ اللَّهِ ۗ وَاللَّهُ رَءُوفٌ بِالْعِبَادِ" (البقرة: 207)
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">61 هـ / 680 م</div>
+                        <h3 class="timeline-title">واقعة كربلاء واستشهاد الإمام الحسين (ع)</h3>
+                        <p class="timeline-desc">رفض الإمام الحسين (ع) مبايعة يزيد بن معاوية، فخرج بأهل بيته إلى الكوفة بعد أن دعاه أهلها، لكنه تعرض للحصار في كربلاء حيث استشهد مع 72 من أصحابه وأهل بيته في يوم عاشوراء.</p>
+                        
+                        <div class="hadith">
+                            قال رسول الله (ص): "الحسين مصباح الهدى وسفينة النجاة"
+                            <div class="reference">[المستدرك على الصحيحين للحاكم: 3/194]</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">260 هـ / 874 م</div>
+                        <h3 class="timeline-title">بداية الغيبة الصغرى للإمام المهدي (عج)</h3>
+                        <p class="timeline-desc">بعد استشهاد الإمام الحسن العسكري (ع)، بدأت الغيبة الصغرى للإمام المهدي (عج) التي استمرت حوالي 70 عاماً. خلال هذه الفترة، كان يتصل بشيعته عبر أربعة سفراء خاصين.</p>
+                        
+                        <div class="reference">
+                            قال الإمام المهدي (عج): "أما الحوادث الواقعة فارجعوا فيها إلى رواة حديثنا فإنهم حجتي عليكم وأنا حجة الله"
+                            <div>[كمال الدين وتمام النعمة للصدوق: 2/483]</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 6 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">329 هـ / 941 م</div>
+                        <h3 class="timeline-title">بداية الغيبة الكبرى</h3>
+                        <p class="timeline-desc">بدأت الغيبة الكبرى بعد وفاة السفير الرابع للإمام المهدي (عج). في هذه الفترة لا يوجد اتصال مباشر، ويجب على الشيعة الرجوع إلى الفقهاء العدول كمراجع للدين.</p>
+                        
+                        <div class="quran-verse">
+                            "هُوَ الَّذِي أَرْسَلَ رَسُولَهُ بِالْهُدَىٰ وَدِينِ الْحَقِّ لِيُظْهِرَهُ عَلَى الدِّينِ كُلِّهِ وَلَوْ كَرِهَ الْمُشْرِكُونَ" (التوبة: 33)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Imams Section -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-star-and-crescent"></i> الأئمة الاثنا عشر (عليهم السلام)</h2>
+            <p>الأئمة المعصومون الاثنا عشر هم خلفاء النبي محمد (ص) وأوصياؤه، وقد نص عليهم رسول الله (ص) في أحاديث متواترة.</p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div style="background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%); height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                        الإمام علي بن أبي طالب (ع)
+                    </div>
+                    <div class="gallery-caption">(23 ق.هـ - 40 هـ)</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div style="background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                        الإمام الحسن المجتبى (ع)
+                    </div>
+                    <div class="gallery-caption">(3 هـ - 50 هـ)</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                        الإمام الحسين الشهيد (ع)
+                    </div>
+                    <div class="gallery-caption">(4 هـ - 61 هـ)</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                        الإمام علي زين العابدين (ع)
+                    </div>
+                    <div class="gallery-caption">(38 هـ - 95 هـ)</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Mahdi Section -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-moon"></i> الإمام المهدي (عجل الله فرجه)</h2>
+            <p>الإمام الثاني عشر محمد بن الحسن المهدي (عج) هو الإمام الحالي الذي يعيش في غيبة كبرى وسيظهر في آخر الزمان ليملأ الأرض قسطاً وعدلاً كما ملئت ظلماً وجوراً.</p>
+            
+            <div class="hadith">
+                قال رسول الله (ص): "لو لم يبق من الدهر إلا يوم واحد لطوّل الله ذلك اليوم حتى يخرج رجل من ولدي فيملأ الأرض عدلاً وقسطاً كما ملئت ظلماً وجوراً"
+                <div class="reference">[سنن أبي داود: 4/106]</div>
+            </div>
+            
+            <div class="quran-verse">
+                "وَنُرِيدُ أَن نَّمُنَّ عَلَى الَّذِينَ اسْتُضْعِفُوا فِي الْأَرْضِ وَنَجْعَلَهُمْ أَئِمَّةً وَنَجْعَلَهُمُ الْوَارِثِينَ" (القصص: 5)
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">عن الموقع</h3>
+                <p>موقع موسوعة تاريخ أهل البيت (عليهم السلام) يهدف إلى نشر التراث الشيعي الأصيل والتعريف بتاريخ الأئمة المعصومين من أهل بيت النبوة.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">روابط مهمة</h3>
+                <div class="footer-links">
+                    <a href="#">مكتبة الكتب</a>
+                    <a href="#">المقالات البحثية</a>
+                    <a href="#">الخطب والمحاضرات</a>
+                    <a href="#">الزيارات والأدعية</a>
+                    <a href="#">أسئلة وأجوبة</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">تواصل معنا</h3>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-envelope"></i> البريد الإلكتروني</a>
+                    <a href="#"><i class="fab fa-telegram"></i> قناة التليجرام</a>
+                    <a href="#"><i class="fab fa-instagram"></i> الإنستغرام</a>
+                    <a href="#"><i class="fab fa-youtube"></i> اليوتيوب</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <div class="container">
+                <p>جميع الحقوق محفوظة © 2023 موقع موسوعة تاريخ أهل البيت (عليهم السلام)</p>
+                <p>"اللهم صل على محمد وآل محمد وعجل فرجهم"</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple script for active navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all items
+                    navItems.forEach(i => i.classList.remove('active'));
+                    
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                    
+                    // Scroll to section (simplified for this example)
+                    alert('سيتم التوجه للقسم المطلوب في النسخة الكاملة');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
