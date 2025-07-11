@@ -142,23 +142,6 @@
             color: var(--dark);
         }
         
-        /* Progress bar */
-        .progress-container {
-            position: fixed;
-            top: 80px;
-            width: 100%;
-            height: 5px;
-            background: rgba(10, 94, 42, 0.2);
-            z-index: 99;
-        }
-        
-        .progress-bar {
-            height: 5px;
-            background: var(--accent);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-        
         /* Home Section */
         .home-section {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 243, 233, 0.95) 100%);
@@ -205,48 +188,18 @@
             line-height: 1.9;
             margin-bottom: 2rem;
             text-align: center;
-        }
-        
-        .timeline-container {
-            display: flex;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-        
-        .timeline {
-            display: flex;
-            overflow-x: auto;
-            padding: 20px 0;
-            gap: 15px;
-            max-width: 100%;
-        }
-        
-        .timeline-item {
-            min-width: 250px;
-            background: white;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 2rem;
             border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: justify;
+        }
+        
+        .message-title {
+            color: var(--secondary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
             text-align: center;
-            border-left: 4px solid var(--primary);
-            transition: var(--transition);
-        }
-        
-        .timeline-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-        }
-        
-        .timeline-year {
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-        }
-        
-        .timeline-event {
-            font-size: 1.1rem;
-            color: var(--dark);
         }
         
         /* Biography Section */
@@ -452,43 +405,6 @@
             margin-left: 10px;
         }
         
-        .map-container {
-            margin: 2rem 0;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            height: 300px;
-            background: #e8e1c6;
-            position: relative;
-        }
-        
-        .map-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(245, 243, 233, 0.8), rgba(245, 243, 233, 0.4));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .map-text {
-            background: rgba(10, 94, 42, 0.9);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            max-width: 500px;
-            text-align: center;
-        }
-        
-        .map-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-        
         /* Imams List Section */
         .imams-section {
             background: linear-gradient(135deg, #f0ede1 0%, #e5dfcb 100%);
@@ -560,113 +476,6 @@
             padding: 8px;
             text-align: center;
             font-weight: 600;
-        }
-        
-        /* Share buttons */
-        .share-section {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 2rem 0;
-        }
-        
-        .share-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-        
-        .share-btn:hover {
-            background: var(--accent);
-            transform: scale(1.1);
-        }
-        
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--dark) 0%, #000 100%);
-            color: white;
-            padding: 4rem 0 2rem;
-            text-align: center;
-            margin-top: 3rem;
-            border-top: 5px solid var(--accent);
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .footer-section {
-            flex: 1;
-            min-width: 300px;
-            margin-bottom: 2rem;
-            padding: 0 20px;
-        }
-        
-        .footer-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        
-        .footer-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 25%;
-            width: 50%;
-            height: 2px;
-            background: var(--accent);
-        }
-        
-        .footer-links a {
-            display: block;
-            color: #ddd;
-            text-decoration: none;
-            margin-bottom: 0.8rem;
-            transition: color 0.3s;
-            font-size: 1.1rem;
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent);
-            transform: translateX(-5px);
-        }
-        
-        .footer-links a i {
-            margin-left: 8px;
-        }
-        
-        .copyright {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 1rem;
-            color: #aaa;
-            max-width: 800px;
-            margin: 2rem auto 0;
-        }
-        
-        .dua {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 1.2rem;
-            margin-top: 15px;
         }
         
         /* Back to top button */
@@ -836,62 +645,32 @@
         </div>
     </nav>
     
-    <!-- Progress bar -->
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
-    </div>
-    
     <!-- Main Content -->
     <div class="container">
         <!-- Home Section -->
         <section id="home" class="home-section">
-            <h2 class="home-title"><i class="fas fa-home"></i> مرحباً بكم في موقع سيرة النبي وأهل البيت</h2>
-            <p class="intro-text">
-                هذا الموقع يقدم رحلة تاريخية ودينية شاملة عبر سيرة النبي محمد (ص) وأهل بيته الأطهار (عليهم السلام)، 
-                مع التركيز على سيرتهم العطرة والمظلوميات التي تعرضوا لها عبر التاريخ. 
-                نهدف من خلال هذا الموقع إلى تقديم رؤية واضحة وصحيحة لتاريخ الإسلام وأحداثه المصيرية.
-            </p>
+            <h2 class="home-title"><i class="fas fa-book"></i> رسالة إلى كل من يريد أن يعرف طريق الحق</h2>
             
-            <div class="timeline-container">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-year">570 م</div>
-                        <div class="timeline-event">ولادة النبي محمد (ص)</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">610 م</div>
-                        <div class="timeline-event">بدء البعثة النبوية</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">622 م</div>
-                        <div class="timeline-event">الهجرة إلى المدينة</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">632 م</div>
-                        <div class="timeline-event">وفاة النبي (ص) وبدء خلافة الإمام علي (ع)</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">680 م</div>
-                        <div class="timeline-event">استشهاد الإمام الحسين (ع) في كربلاء</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">874 م</div>
-                        <div class="timeline-event">بدء الغيبة الصغرى للإمام المهدي (عج)</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">941 م</div>
-                        <div class="timeline-event">بدء الغيبة الكبرى للإمام المهدي (عج)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="map-container">
-                <div class="map-overlay">
-                    <div class="map-text">
-                        <div class="map-title">خريطة الأماكن المقدسة</div>
-                        <p>مكة المكرمة - المدينة المنورة - الكوفة - كربلاء - سامراء</p>
-                    </div>
-                </div>
+            <div class="intro-text">
+                <p class="message-title">بسم الله الرحمن الرحيم</p>
+                <p>
+                    الحمد لله على نعمة التشيّع، على نعمة البصيرة، على نور الهداية الذي دخل قلبي بعد ما عرفت الحقيقة.
+                    أكتب لك هذه الكلمات حتى توصلك الصورة كاملة، مو بس حكايات متفرقة.
+                </p>
+                <p>
+                    رح أبدي وياك من أوّل لحظة بعد وفاة رسول الله صلى الله عليه وآله وسلم إلى الإمام المهدي (عج) حسب التسلسل الزمني، وخلّي قلبك يسمع قبل عقلك.
+                </p>
+                <p>
+                    في هذا الموقع، سأقدم لك الحقائق كما وقعت، بدون تزييف ولا تحريف، سأعرض لك أحداث التاريخ كما حدثت، من مصادر موثوقة من الفريقين. 
+                    ليس غرضي إثارة الفتنة، بل إظهار الحقيقة لمن أراد أن يعرفها.
+                </p>
+                <p>
+                    سأبدأ معك من لحظة وفاة النبي (ص)، ثم أحداث السقيفة، ثم مظلومية الزهراء (ع)، ثم خلافة الإمام علي (ع)، واستشهاده، 
+                    ثم الحسن (ع) ومصالحته، ثم فاجعة كربلاء، ثم الأئمة من بعدهم إلى أن نصل إلى الإمام المهدي (عج).
+                </p>
+                <p>
+                    أرجو منك أن تقرأ بقلب مفتوح وعقل متجرد من التعصب، لأن الحقيقة نور، ومن أراد الله به خيراً فقه في الدين.
+                </p>
             </div>
         </section>
         
@@ -1130,22 +909,6 @@
             </div>
         </section>
         
-        <!-- Share buttons -->
-        <div class="share-section">
-            <div class="share-btn" id="shareFb">
-                <i class="fab fa-facebook-f"></i>
-            </div>
-            <div class="share-btn" id="shareTw">
-                <i class="fab fa-twitter"></i>
-            </div>
-            <div class="share-btn" id="shareWa">
-                <i class="fab fa-whatsapp"></i>
-            </div>
-            <div class="share-btn" id="shareTelegram">
-                <i class="fab fa-telegram"></i>
-            </div>
-        </div>
-        
         <!-- Imams Section -->
         <section id="imams" class="imams-section">
             <h2 class="section-title"><i class="fas fa-star-and-crescent"></i> الأئمة الاثنا عشر المعصومون (عليهم السلام)</h2>
@@ -1189,7 +952,7 @@
                         <div class="imam-name">الإمام علي زين العابدين (ع)</div>
                         <div class="imam-title">سيد الساجدين</div>
                     </div>
-                    <div class="imam-lifespan">38 هـ - 95 هـ</div>
+                    <div class="imam-lifespan">38 هـ - 95 ه��</div>
                 </div>
                 
                 <!-- Imam Baqir -->
@@ -1209,7 +972,7 @@
                         <div class="imam-name">الإمام جعفر الصادق (ع)</div>
                         <div class="imam-title">مؤسس المذهب</div>
                     </div>
-                    <div class="imam-lifespan">83 هـ - 148 هـ</div>
+                    <div class="imam-lifespan">83 ه�� - 148 هـ</div>
                 </div>
                 
                 <!-- Imam Kazim -->
@@ -1249,7 +1012,7 @@
                         <div class="imam-name">الإمام علي الهادي (ع)</div>
                         <div class="imam-title">الإمام المحاصر</div>
                     </div>
-                    <div class="imam-lifespan">212 ه�� - 254 هـ</div>
+                    <div class="imam-lifespan">212 هـ - 254 هـ</div>
                 </div>
                 
                 <!-- Imam Askari -->
@@ -1332,14 +1095,6 @@
                 });
             });
             
-            // Progress bar
-            window.addEventListener('scroll', function() {
-                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = (winScroll / height) * 100;
-                document.getElementById("progressBar").style.width = scrolled + "%";
-            });
-            
             // Back to top button
             const backToTopBtn = document.getElementById('backToTop');
             
@@ -1356,31 +1111,6 @@
                     top: 0,
                     behavior: 'smooth'
                 });
-            });
-            
-            // Share buttons
-            const shareFb = document.getElementById('shareFb');
-            const shareTw = document.getElementById('shareTw');
-            const shareWa = document.getElementById('shareWa');
-            const shareTelegram = document.getElementById('shareTelegram');
-            
-            const shareUrl = encodeURIComponent(window.location.href);
-            const shareTitle = encodeURIComponent(document.title);
-            
-            shareFb.addEventListener('click', function() {
-                window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`, 'facebook-share-dialog', 'width=626,height=436');
-            });
-            
-            shareTw.addEventListener('click', function() {
-                window.open(`https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}`, 'twitter-share-dialog', 'width=626,height=436');
-            });
-            
-            shareWa.addEventListener('click', function() {
-                window.open(`https://api.whatsapp.com/send?text=${shareTitle} ${shareUrl}`, 'whatsapp-share-dialog', 'width=626,height=436');
-            });
-            
-            shareTelegram.addEventListener('click', function() {
-                window.open(`https://telegram.me/share/url?url=${shareUrl}&text=${shareTitle}`, 'telegram-share-dialog', 'width=626,height=436');
             });
         });
     </script>
