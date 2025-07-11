@@ -16,8 +16,11 @@
         
         :root {
             --primary: #0a5e2a;
+            --primary-light: #1b7a40;
             --secondary: #8e1e1e;
+            --secondary-light: #b82929;
             --accent: #d4af37;
+            --accent-light: #e8c55f;
             --light: #f5f3e9;
             --dark: #1a1a1a;
             --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -139,6 +142,113 @@
             color: var(--dark);
         }
         
+        /* Progress bar */
+        .progress-container {
+            position: fixed;
+            top: 80px;
+            width: 100%;
+            height: 5px;
+            background: rgba(10, 94, 42, 0.2);
+            z-index: 99;
+        }
+        
+        .progress-bar {
+            height: 5px;
+            background: var(--accent);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        /* Home Section */
+        .home-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 243, 233, 0.95) 100%);
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(10, 94, 42, 0.2);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .home-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,20 Q40,5 50,20 T80,20 Q95,30 80,50 T80,80 Q60,95 50,80 T20,80 Q5,70 20,50 Z" fill="none" stroke="rgba(10,94,42,0.05)" stroke-width="2"/></svg>');
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .home-title {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .home-title i {
+            margin-left: 15px;
+            color: var(--accent);
+        }
+        
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .timeline-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .timeline {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px 0;
+            gap: 15px;
+            max-width: 100%;
+        }
+        
+        .timeline-item {
+            min-width: 250px;
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            border-left: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+        
+        .timeline-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-event {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
         /* Biography Section */
         .biography-section {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 243, 233, 0.9) 100%);
@@ -185,17 +295,38 @@
             background: rgba(255, 255, 255, 0.7);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
         }
         
-        .biography-block:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        .biography-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .imam-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 20px;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        
+        .biography-title-container {
+            flex: 1;
         }
         
         .block-title {
             color: var(--primary);
             font-size: 1.8rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
         }
@@ -203,6 +334,11 @@
         .block-title i {
             margin-left: 10px;
             color: var(--accent);
+        }
+        
+        .imam-period {
+            color: var(--secondary);
+            font-weight: 500;
         }
         
         .biography-text {
@@ -301,6 +437,7 @@
             border-radius: 8px;
             border: 1px solid rgba(142, 30, 30, 0.2);
             margin: 15px 0;
+            position: relative;
         }
         
         .injustice-title {
@@ -313,6 +450,43 @@
         
         .injustice-title i {
             margin-left: 10px;
+        }
+        
+        .map-container {
+            margin: 2rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 300px;
+            background: #e8e1c6;
+            position: relative;
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(245, 243, 233, 0.8), rgba(245, 243, 233, 0.4));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .map-text {
+            background: rgba(10, 94, 42, 0.9);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
+        }
+        
+        .map-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
         }
         
         /* Imams List Section */
@@ -339,6 +513,12 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
             position: relative;
             border: 1px solid rgba(10, 94, 42, 0.1);
+            transition: var(--transition);
+        }
+        
+        .imam-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
         .imam-header {
@@ -346,6 +526,22 @@
             color: white;
             padding: 20px;
             text-align: center;
+            position: relative;
+        }
+        
+        .imam-number {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--accent);
+            color: var(--dark);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
         }
         
         .imam-name {
@@ -364,6 +560,33 @@
             padding: 8px;
             text-align: center;
             font-weight: 600;
+        }
+        
+        /* Share buttons */
+        .share-section {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 2rem 0;
+        }
+        
+        .share-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .share-btn:hover {
+            background: var(--accent);
+            transform: scale(1.1);
         }
         
         /* Footer */
@@ -446,6 +669,38 @@
             margin-top: 15px;
         }
         
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+        
         /* Responsive Design */
         @media (max-width: 992px) {
             .site-title {
@@ -460,8 +715,14 @@
                 font-size: 1.9rem;
             }
             
-            .biography-section, .imams-section {
+            .biography-section, .imams-section, .home-section {
                 padding: 2rem;
+            }
+            
+            .imam-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
             }
         }
         
@@ -482,7 +743,7 @@
                 font-size: 1.5rem;
             }
             
-            .biography-section, .imams-section {
+            .biography-section, .imams-section, .home-section {
                 padding: 1.5rem;
             }
             
@@ -494,6 +755,16 @@
                 padding: 0.6rem 1.2rem;
                 font-size: 1rem;
                 margin: 0 3px;
+            }
+            
+            .biography-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .imam-icon {
+                margin-left: 0;
+                margin-bottom: 15px;
             }
         }
         
@@ -532,6 +803,12 @@
                 padding: 15px;
                 font-size: 1rem;
             }
+            
+            .imam-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -559,14 +836,79 @@
         </div>
     </nav>
     
+    <!-- Progress bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
     <!-- Main Content -->
     <div class="container">
+        <!-- Home Section -->
+        <section id="home" class="home-section">
+            <h2 class="home-title"><i class="fas fa-home"></i> مرحباً بكم في موقع سيرة النبي وأهل البيت</h2>
+            <p class="intro-text">
+                هذا الموقع يقدم رحلة تاريخية ودينية شاملة عبر سيرة النبي محمد (ص) وأهل بيته الأطهار (عليهم السلام)، 
+                مع التركيز على سيرتهم العطرة والمظلوميات التي تعرضوا لها عبر التاريخ. 
+                نهدف من خلال هذا الموقع إلى تقديم رؤية واضحة وصحيحة لتاريخ الإسلام وأحداثه المصيرية.
+            </p>
+            
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">570 م</div>
+                        <div class="timeline-event">ولادة النبي محمد (ص)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">610 م</div>
+                        <div class="timeline-event">بدء البعثة النبوية</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">622 م</div>
+                        <div class="timeline-event">الهجرة إلى المدينة</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">632 م</div>
+                        <div class="timeline-event">وفاة النبي (ص) وبدء خلافة الإمام علي (ع)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">680 م</div>
+                        <div class="timeline-event">استشهاد الإمام الحسين (ع) في كربلاء</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">874 م</div>
+                        <div class="timeline-event">بدء الغيبة الصغرى للإمام المهدي (عج)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">941 م</div>
+                        <div class="timeline-event">بدء الغيبة الكبرى للإمام المهدي (عج)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <div class="map-overlay">
+                    <div class="map-text">
+                        <div class="map-title">خريطة الأماكن المقدسة</div>
+                        <p>مكة المكرمة - المدينة المنورة - الكوفة - كربلاء - سامراء</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- Prophet Section -->
         <section id="prophet" class="biography-section">
             <h2 class="section-title"><i class="fas fa-star-and-crescent"></i> النبي محمد (ص)</h2>
             
             <div class="biography-block">
-                <h3 class="block-title"><i class="fas fa-book"></i> سيرته</h3>
+                <div class="biography-header">
+                    <div class="imam-icon">
+                        <i class="fas fa-book-quran"></i>
+                    </div>
+                    <div class="biography-title-container">
+                        <h3 class="block-title"><i class="fas fa-book"></i> سيرته</h3>
+                        <div class="imam-period">570 م - 632 م</div>
+                    </div>
+                </div>
                 <div class="biography-text">
                     <p>محمد بن عبد الله بن عبد المطلب، ولد في مكة سنة 570م. نشأ يتيم الأبوين، عُرف بالصادق الأمين قبل البعثة. نزل عليه الوحي في غار حراء وهو في الأربعين من عمره، واستمر في تبليغ الرسالة 23 سنة. هاجر إلى المدينة سنة 622م، ووحد القبائل تحت راية الإسلام. توفي في المدينة يوم 12 ربيع الأول سنة 11هـ.</p>
                     
@@ -577,7 +919,14 @@
             </div>
             
             <div class="biography-block">
-                <h3 class="block-title"><i class="fas fa-heart-broken"></i> مظلوميته</h3>
+                <div class="biography-header">
+                    <div class="imam-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <div class="biography-title-container">
+                        <h3 class="block-title"><i class="fas fa-heart-broken"></i> مظلوميته</h3>
+                    </div>
+                </div>
                 <div class="biography-text">
                     <p>عانى النبي (ص) من الظلم طوال فترة دعوته. في مكة تعرض للاضطهاد والتعذيب من قريش، وحوصر في شعب أبي طالب. في المدينة واجه المنافقين والمؤامرات من الداخل، وحارب اليهود والقبائل المتحالفة ضده.</p>
                     
@@ -599,7 +948,15 @@
             <h2 class="section-title"><i class="fas fa-lion"></i> الإمام علي بن أبي طالب (ع)</h2>
             
             <div class="biography-block">
-                <h3 class="block-title"><i class="fas fa-book"></i> سيرته</h3>
+                <div class="biography-header">
+                    <div class="imam-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="biography-title-container">
+                        <h3 class="block-title"><i class="fas fa-book"></i> سيرته</h3>
+                        <div class="imam-period">599 م - 661 م</div>
+                    </div>
+                </div>
                 <div class="biography-text">
                     <p>علي بن أبي طالب بن عبد المطلب، ابن عم النبي (ص) وصهره. أول من أسلم من الصبيان، وصاحب النبي في جميع غزواته. بويع بالخلافة سنة 35هـ بعد مقتل عثمان، وحكم خمس سنوات قضاها في إعادة الحقوق وإصلاح الأمة. استشهد في 21 رمضان سنة 40هـ على يد ابن ملجم وهو يصلي في مسجد الكوفة.</p>
                     
@@ -611,7 +968,14 @@
             </div>
             
             <div class="biography-block">
-                <h3 class="block-title"><i class="fas fa-heart-broken"></i> مظلوميته</h3>
+                <div class="biography-header">
+                    <div class="imam-icon">
+                        <i class="fas fa-heart-broken"></i>
+                    </div>
+                    <div class="biography-title-container">
+                        <h3 class="block-title"><i class="fas fa-heart-broken"></i> مظلوميته</h3>
+                    </div>
+                </div>
                 <div class="biography-text">
                     <div class="injustice">
                         <div class="injustice-title"><i class="fas fa-exclamation-triangle"></i> الهجوم على دار فاطمة (ع)</div>
@@ -631,14 +995,29 @@
             <h2 class="section-title"><i class="fas fa-dove"></i> الإمام الحسن المجتبى (ع)</h2>
             
             <div class="biography-block">
-                <h3 class="block-title"><i class="fas fa-book"></i> سيرته</h3>
+                <div class="biography-header">
+                    <div class="imam-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="biography-title-container">
+                        <h3 class="block-title"><i class="fas fa-book"></i> سيرته</h3>
+                        <div class="imam-period">625 م - 670 م</div>
+                    </div>
+                </div>
                 <div class="biography-text">
                     <p>الحسن بن علي بن أبي طالب، سبط النبي (ص) والإمام الثاني. ولد في المدينة سنة 3هـ، وتربى في بيت النبوة. بويع بالخلافة بعد استشهاد أبيه سنة 40هـ، لكنه تنازل عنها لمعاوية بن أبي سفيان بعد ستة أشهر من حكمه، لتفادي إراقة دماء المسلمين. استشهد مسموماً في المدينة سنة 50هـ.</p>
                 </div>
             </div>
             
             <div class="biography-block">
-                <h3 class="block-title"><i class="fas fa-heart-broken"></i> مظلوميته</h3>
+                <div class="biography-header">
+                    <div class="imam-icon">
+                        <i class="fas fa-heart-broken"></i>
+                    </div>
+                    <div class="biography-title-container">
+                        <h3 class="block-title"><i class="fas fa-heart-broken"></i> مظلوميته</h3>
+                    </div>
+                </div>
                 <div class="biography-text">
                     <div class="injustice">
                         <div class="injustice-title"><i class="fas fa-exclamation-triangle"></i> الخيانة من جيشه</div>
@@ -658,7 +1037,15 @@
             <h2 class="section-title"><i class="fas fa-tint"></i> الإمام الحسين الشهيد (ع)</h2>
             
             <div class="biography-block">
-                <h3 class="block-title"><i class="fas fa-book"></i> سيرته</h3>
+                <div class="biography-header">
+                    <div class="imam-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="biography-title-container">
+                        <h3 class="block-title"><i class="fas fa-book"></i> سيرته</h3>
+                        <div class="imam-period">626 م - 680 م</div>
+                    </div>
+                </div>
                 <div class="biography-text">
                     <p>الحسين بن علي بن أبي طالب، سبط النبي (ص) والإمام الثالث. ولد في المدينة سنة 4هـ. رفض مبايعة يزيد بن معاوية، فخرج إلى الكوفة بعد أن دعاه أهلها، لكنه حوصر في كربلاء حيث استشهد مع أصحابه وأهل بيته في يوم عاشوراء سنة 61هـ.</p>
                     
@@ -670,7 +1057,14 @@
             </div>
             
             <div class="biography-block">
-                <h3 class="block-title"><i class="fas fa-heart-broken"></i> مظلوميته</h3>
+                <div class="biography-header">
+                    <div class="imam-icon">
+                        <i class="fas fa-heart-broken"></i>
+                    </div>
+                    <div class="biography-title-container">
+                        <h3 class="block-title"><i class="fas fa-heart-broken"></i> مظلوميته</h3>
+                    </div>
+                </div>
                 <div class="biography-text">
                     <div class="injustice">
                         <div class="injustice-title"><i class="fas fa-exclamation-triangle"></i> خيانة أهل الكوفة</div>
@@ -690,7 +1084,15 @@
             <h2 class="section-title"><i class="fas fa-moon"></i> الإمام المهدي المنتظر (عج)</h2>
             
             <div class="biography-block">
-                <h3 class="block-title"><i class="fas fa-book"></i> سيرته</h3>
+                <div class="biography-header">
+                    <div class="imam-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="biography-title-container">
+                        <h3 class="block-title"><i class="fas fa-book"></i> سيرته</h3>
+                        <div class="imam-period">869 م - الآن</div>
+                    </div>
+                </div>
                 <div class="biography-text">
                     <p>محمد بن الحسن العسكري، الإمام الثاني عشر. ولد في سامراء سنة 255هـ. دخل في الغيبة الصغرى سنة 260هـ ثم الغيبة الكبرى سنة 329هـ. هو المصلح العالمي الذي سيظهر في آخر الزمان ليملأ الأرض قسطاً وعدلاً.</p>
                     
@@ -702,7 +1104,14 @@
             </div>
             
             <div class="biography-block">
-                <h3 class="block-title"><i class="fas fa-heart-broken"></i> مظلوميته</h3>
+                <div class="biography-header">
+                    <div class="imam-icon">
+                        <i class="fas fa-heart-broken"></i>
+                    </div>
+                    <div class="biography-title-container">
+                        <h3 class="block-title"><i class="fas fa-heart-broken"></i> مظلوميته</h3>
+                    </div>
+                </div>
                 <div class="biography-text">
                     <div class="injustice">
                         <div class="injustice-title"><i class="fas fa-exclamation-triangle"></i> الغيبة القسرية</div>
@@ -721,6 +1130,22 @@
             </div>
         </section>
         
+        <!-- Share buttons -->
+        <div class="share-section">
+            <div class="share-btn" id="shareFb">
+                <i class="fab fa-facebook-f"></i>
+            </div>
+            <div class="share-btn" id="shareTw">
+                <i class="fab fa-twitter"></i>
+            </div>
+            <div class="share-btn" id="shareWa">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <div class="share-btn" id="shareTelegram">
+                <i class="fab fa-telegram"></i>
+            </div>
+        </div>
+        
         <!-- Imams Section -->
         <section id="imams" class="imams-section">
             <h2 class="section-title"><i class="fas fa-star-and-crescent"></i> الأئمة الاثنا عشر المعصومون (عليهم السلام)</h2>
@@ -730,6 +1155,7 @@
                 <!-- Imam Ali -->
                 <div class="imam-card">
                     <div class="imam-header">
+                        <div class="imam-number">1</div>
                         <div class="imam-name">الإمام علي بن أبي طالب (ع)</div>
                         <div class="imam-title">أمير المؤمنين</div>
                     </div>
@@ -739,6 +1165,7 @@
                 <!-- Imam Hassan -->
                 <div class="imam-card">
                     <div class="imam-header">
+                        <div class="imam-number">2</div>
                         <div class="imam-name">الإمام الحسن المجتبى (ع)</div>
                         <div class="imam-title">سبط النبي</div>
                     </div>
@@ -748,6 +1175,7 @@
                 <!-- Imam Hussain -->
                 <div class="imam-card">
                     <div class="imam-header">
+                        <div class="imam-number">3</div>
                         <div class="imam-name">الإمام الحسين الشهيد (ع)</div>
                         <div class="imam-title">سيد الشهداء</div>
                     </div>
@@ -757,6 +1185,7 @@
                 <!-- Imam Sajjad -->
                 <div class="imam-card">
                     <div class="imam-header">
+                        <div class="imam-number">4</div>
                         <div class="imam-name">الإمام علي زين العابدين (ع)</div>
                         <div class="imam-title">سيد الساجدين</div>
                     </div>
@@ -766,6 +1195,7 @@
                 <!-- Imam Baqir -->
                 <div class="imam-card">
                     <div class="imam-header">
+                        <div class="imam-number">5</div>
                         <div class="imam-name">الإمام محمد الباقر (ع)</div>
                         <div class="imam-title">باقر العلم</div>
                     </div>
@@ -775,6 +1205,7 @@
                 <!-- Imam Sadiq -->
                 <div class="imam-card">
                     <div class="imam-header">
+                        <div class="imam-number">6</div>
                         <div class="imam-name">الإمام جعفر الصادق (ع)</div>
                         <div class="imam-title">مؤسس المذهب</div>
                     </div>
@@ -784,6 +1215,7 @@
                 <!-- Imam Kazim -->
                 <div class="imam-card">
                     <div class="imam-header">
+                        <div class="imam-number">7</div>
                         <div class="imam-name">الإمام موسى الكاظم (ع)</div>
                         <div class="imam-title">الكاظم الغيظ</div>
                     </div>
@@ -793,6 +1225,7 @@
                 <!-- Imam Rida -->
                 <div class="imam-card">
                     <div class="imam-header">
+                        <div class="imam-number">8</div>
                         <div class="imam-name">الإمام علي الرضا (ع)</div>
                         <div class="imam-title">الإمام المسموم</div>
                     </div>
@@ -802,6 +1235,7 @@
                 <!-- Imam Jawad -->
                 <div class="imam-card">
                     <div class="imam-header">
+                        <div class="imam-number">9</div>
                         <div class="imam-name">الإمام محمد الجواد (ع)</div>
                         <div class="imam-title">الإمام الشهيد</div>
                     </div>
@@ -811,15 +1245,17 @@
                 <!-- Imam Hadi -->
                 <div class="imam-card">
                     <div class="imam-header">
+                        <div class="imam-number">10</div>
                         <div class="imam-name">الإمام علي الهادي (ع)</div>
                         <div class="imam-title">الإمام المحاصر</div>
                     </div>
-                    <div class="imam-lifespan">212 هـ - 254 هـ</div>
+                    <div class="imam-lifespan">212 ه�� - 254 هـ</div>
                 </div>
                 
                 <!-- Imam Askari -->
                 <div class="imam-card">
                     <div class="imam-header">
+                        <div class="imam-number">11</div>
                         <div class="imam-name">الإمام الحسن العسكري (ع)</div>
                         <div class="imam-title">أبو الغيبة</div>
                     </div>
@@ -829,6 +1265,7 @@
                 <!-- Imam Mahdi -->
                 <div class="imam-card">
                     <div class="imam-header">
+                        <div class="imam-number">12</div>
                         <div class="imam-name">الإمام المهدي (عج)</div>
                         <div class="imam-title">المنقذ المنتظر</div>
                     </div>
@@ -836,6 +1273,11 @@
                 </div>
             </div>
         </section>
+    </div>
+    
+    <!-- Back to top button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
     </div>
     
     <!-- Footer -->
@@ -888,6 +1330,57 @@
                         }
                     }
                 });
+            });
+            
+            // Progress bar
+            window.addEventListener('scroll', function() {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.getElementById("progressBar").style.width = scrolled + "%";
+            });
+            
+            // Back to top button
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Share buttons
+            const shareFb = document.getElementById('shareFb');
+            const shareTw = document.getElementById('shareTw');
+            const shareWa = document.getElementById('shareWa');
+            const shareTelegram = document.getElementById('shareTelegram');
+            
+            const shareUrl = encodeURIComponent(window.location.href);
+            const shareTitle = encodeURIComponent(document.title);
+            
+            shareFb.addEventListener('click', function() {
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`, 'facebook-share-dialog', 'width=626,height=436');
+            });
+            
+            shareTw.addEventListener('click', function() {
+                window.open(`https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}`, 'twitter-share-dialog', 'width=626,height=436');
+            });
+            
+            shareWa.addEventListener('click', function() {
+                window.open(`https://api.whatsapp.com/send?text=${shareTitle} ${shareUrl}`, 'whatsapp-share-dialog', 'width=626,height=436');
+            });
+            
+            shareTelegram.addEventListener('click', function() {
+                window.open(`https://telegram.me/share/url?url=${shareUrl}&text=${shareTitle}`, 'telegram-share-dialog', 'width=626,height=436');
             });
         });
     </script>
